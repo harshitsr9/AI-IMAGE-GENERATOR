@@ -27,7 +27,7 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        const response = await fetch('http://localhost:8000/api/v1/imgGenerate', {
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/v1/imgGenerate`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const CreatePost = () => {
 
       try {
         console.log("Submitting post:", form);
-        const response = await fetch('http://localhost:8000/api/v1/post', {
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/v1/post`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -175,4 +175,4 @@ const CreatePost = () => {
   );
 };
 
-export default CreatePost; 
+export default CreatePost;
